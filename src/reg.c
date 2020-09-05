@@ -104,8 +104,6 @@ void external_interrupt_init()
   ISER |= 1<<5;
 }
 
-
-
 void EXTI0_1_Handler()
 {
   delay_ms(100);
@@ -115,7 +113,6 @@ void EXTI0_1_Handler()
 
   }
 }
-
 
 void delay_ms(unsigned int time)
 {
@@ -165,7 +162,6 @@ void pin_set(unsigned int port,unsigned int pin, unsigned int value)
   
 }
 
-
 void erase_flash(unsigned int* address)
 {
   //set OPTER bit in FLASH_CR
@@ -183,4 +179,10 @@ void erase_flash(unsigned int* address)
   }
 
   FLASH_CR &= ~(1<<5);
+}
+
+
+void usart_init()
+{
+  
 }
