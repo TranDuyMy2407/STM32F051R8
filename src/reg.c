@@ -72,7 +72,7 @@ void pll_48_config()
   /*enable PLL*/
   RCC_CR |= 1<<24;
 
-  /*wait PLL flag setted*/
+  /*wait PLL flag set*/
   while(!read_bit(RCC_CR,25));
 
   /*use PLL as system clock*/
