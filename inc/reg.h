@@ -62,3 +62,6 @@ unsigned int read_bit(unsigned int reg, unsigned int bit);
 void delay_ms(unsigned int time);
 void external_interrupt_init();
 void pll_48_config();
+void erase_flash(unsigned int* address);
+
+
