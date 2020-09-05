@@ -40,7 +40,7 @@
 
 
 /*---------------------------------SYSCFG---------------------------------------------*/
-#define SYSCFG 					0x40010000
+#define SYSCFG 					        0x40010000
 #define SYSCFG_EXTICR1          *((volatile unsigned*)(SYSCFG+0x08))
 /*------------------------------------------------------------------------------*/
 
@@ -51,7 +51,7 @@
 #define RCC_BASE				0x40021000u
 #define RCC_CR 					*((volatile unsigned int*)RCC_BASE)
 #define RCC_CFGR				*((volatile unsigned int*)(RCC_BASE+0x04))
-#define RCC_AHBENR				*((volatile unsigned int*)(RCC_BASE+0x14))
+#define RCC_AHBENR			*((volatile unsigned int*)(RCC_BASE+0x14))
 
 /*------------------------------------------------------------------------------*/
 
