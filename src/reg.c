@@ -120,7 +120,7 @@ void EXTI0_1_Handler()
 void delay_ms(unsigned int time)
 {
  
-  STK_RVR = 47999-time-4;
+  STK_RVR = 47999-time;
   STK_CVR = 0;
   STK_CSR = 0x05;
   while(time--)
