@@ -4,7 +4,7 @@ OUTPUT_DIR	=	output
 INC_DIR		= 	inc
 SRC_DIR 	=	src
 
-OBJ_FILE	= $(OUTPUT_DIR)/main.o $(OUTPUT_DIR)/startup_ARMCM0.o $(OUTPUT_DIR)/reg.o
+OBJ_FILE	= $(OUTPUT_DIR)/main.o $(OUTPUT_DIR)/startup_ARMCM0.o $(OUTPUT_DIR)/reg.o $(OUTPUT_DIR)/interrupt.o
 LINKER_FILE	= ld/stm32f0_discovery.ld
 COMPILER_PATH	= 'C:/Program Files (x86)/ARM_GCC/2020/bin/arm-none-eabi'
 
@@ -25,6 +25,9 @@ $(OUTPUT_DIR)/main.o: $(SRC_DIR)/main.c
 $(OUTPUT_DIR)/reg.o: $(SRC_DIR)/reg.c 
 	$(CC) $(CC_OPT) -o $@ $<
 
+$(OUTPUT_DIR)/interrupt.o: $(SRC_DIR)/interrupt.c
+	$(CC) $(CC_OPT) -o $@ $<
+	
 $(OUTPUT_DIR)/startup_ARMCM0.o: $(SRC_DIR)/startup_ARMCM0.S
 	$(ASM) $(ASM_OPT) -o $@ $<
 

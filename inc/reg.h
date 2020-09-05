@@ -8,7 +8,8 @@
 #define GPIOE_BASE 				0x48001000u
 #define GPIOF_BASE 				0x48001400u
 
-#define GPIOA_AFRL 				(GPIOA_BASE+0x20)
+#define GPIOA_AFRL 				*((volatile unsigned int*)(GPIOA_BASE+0x20))
+#define GPIOA_AFRH              *((volatile unsigned int*)(GPIOA_BASE+0x24))
 /*----------------------------------------------------------------------------------*/
 
 
@@ -42,7 +43,7 @@
 /*---------------------------------SYSCFG---------------------------------------------*/
 #define SYSCFG 					        0x40010000
 #define SYSCFG_EXTICR1          *((volatile unsigned*)(SYSCFG+0x08))
-/*------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------*/
 
 
 
@@ -50,8 +51,14 @@
 
 #define RCC_BASE				0x40021000u
 #define RCC_CR 					*((volatile unsigned int*)RCC_BASE)
+<<<<<<< HEAD
+#define RCC_CFGR				*((volatile unsigned int*)(RCC_BASE+0x04u))
+#define RCC_AHBENR				*((volatile unsigned int*)(RCC_BASE+0x14u))
+#define RCC_APB2ENR             *((volatile unsigned int*)(RCC_BASE+0x18u))
+=======
 #define RCC_CFGR				*((volatile unsigned int*)(RCC_BASE+0x04))
 #define RCC_AHBENR			*((volatile unsigned int*)(RCC_BASE+0x14))
+>>>>>>> c8f94a7adbad3f3ba2b37813cba638ce6829ae4d
 
 /*------------------------------------------------------------------------------*/
 
@@ -73,6 +80,17 @@
 /*-----------------------------------------------------------------------------*/
 
 
+
+/*--------------------------------USART----------------------------------------*/
+#define USART1_BASE             0x40013800u
+#define USART_CR1               *((volatile unsigned int*)(USART1_BASE+0))
+#define USART_CR2               *((volatile unsigned int*)(USART1_BASE+0x04u))
+#define USART_BRR               *((volatile unsigned int*)(USART1_BASE+0x0Cu))
+#define USART_ISR               *((volatile unsigned int*)(USART1_BASE+0x1Cu))
+#define USART_TDR               *((volatile unsigned int*)(USART1_BASE+0x28u))
+
+
+/*-----------------------------------------------------------------------------*/
 
 
 

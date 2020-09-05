@@ -1,54 +1,5 @@
 #include "../inc/reg.h"
 
-void Reserved_IRQHandler(void)
-{
- while(1)
- {
-
- }
-}
-
-void NMI_Handler(void)
-{
-  while(1)
-  {
-    /* nothing to be run here */
-  }
-}
-
-void HardFault_Handler(void)
-{
-  while(1)
-  {
-    /* nothing to be run here */
-  }
-}
-
-void SVC_Handler(void)
-{
-  while(1)
-  {
-    /* nothing to be run here */
-  }
-}
-
-void PendSV_Handler(void)
-{
-  while(1)
-  {
-    /* nothing to be run here */
-  }
-}
-
-void SysTick_Handler(void)
-{
-  while(1)
-  {
-    /* nothing to be run here */
-  }
-}
-
-
 void pll_48_config()
 {
   
@@ -93,25 +44,6 @@ unsigned int read_bit(unsigned int reg, unsigned int bit)
 
     else
       return 0;
-}
-
-void external_interrupt_init()
-{
- 
-  SYSCFG_EXTICR1 &= 0xFFFFFFF0; 
-  EXTI_RTSR |= 1;
-  EXTI_IMR |= 1;
-  ISER |= 1<<5;
-}
-
-void EXTI0_1_Handler()
-{
-  delay_ms(100);
-  if(EXTI_PR == 1 && (EXTI_IMR & 1<<0)==1)
-  {
-    EXTI_PR |= 1<<0;
-
-  }
 }
 
 void delay_ms(unsigned int time)
@@ -182,7 +114,22 @@ void erase_flash(unsigned int* address)
 }
 
 
-void usart_init()
+void send_byte(unsigned char c)
 {
-  
+  if(read_bit(USART_ISR,7))
+    USART_TDR = (unsigned int)c;
 }
+
+void send_string(unsigned char *str)
+{
+    while (*str)
+    {
+      if(read_bit(USART_ISR,7))
+      {
+        send_byte(*str);
+        str++;
+      }
+    }
+    
+}
+
