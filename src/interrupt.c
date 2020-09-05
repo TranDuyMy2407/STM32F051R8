@@ -67,6 +67,14 @@ void EXTI0_1_Handler()
   }
 }
 
+
+void uart_interrupt_init()
+{
+  EXTI_RTSR |= 1;
+  EXTI_IMR |= 1;
+  ISER |= 1<<27;
+}
+
 void usart_init()
 {
 
