@@ -30,7 +30,7 @@
 
 
 /*---------------------------------EXINT---------------------------------------------*/
-#define EXINT_BASE  			0x40010400
+#define EXINT_BASE              0x40010400
 #define EXTI_IMR				*((volatile unsigned int*)(EXINT_BASE+0x00))
 #define EXTI_RTSR				*((volatile unsigned int*)(EXINT_BASE+0x08))
 #define EXTI_FTS				*((volatile unsigned int*)(EXINT_BASE+0x0C))
@@ -41,7 +41,7 @@
 
 /*---------------------------------SYSCFG---------------------------------------------*/
 #define SYSCFG 					0x40010000
-#define SYSCFG_EXTICR1 			*((volatile unsigned*)(SYSCFG+0x08))
+#define SYSCFG_EXTICR1          *((volatile unsigned*)(SYSCFG+0x08))
 /*------------------------------------------------------------------------------*/
 
 
